@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Public+Sans:wght@400;600&family=Stalinist+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/animations.css">
+    <title>AngelsMusic</title>
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="header__wrap">
+            <nav class="header__nav">
+                <ul class="header__ul">
+                    <li class="header__li"><a href="#apparat" class="header__link header__link_first">Парк оборудования</a></li>
+                    <li class="header__li"><a href="#" class="header__link">Услуги</a></li>
+                    <li class="header__li"><a href="#galary" class="header__link">Галерея</a></li>
+                    <li class="header__li"><a href="#about" class="header__link">О нас</a></li>
+                    <li class="header__li"><a href="#footer" class="header__link">Контакты</a></li>              
+                </ul>
+            </nav>
+
+            <div class="header__logo">
+                <img src="./src/icons/MainLogo.svg" alt="AngelsMusicLogo">                    
+            </div>
+
+            <a href="+74959209059" class="header__link header__phone">+7 (495) 920 90 59</a>
+        </div>
+    </header>
+
+    <section class="modal ghost hide">
+            <div class="modal__body">
+                <div class="modal__back">
+                    <img src="./src/icons/MainLogo.svg" alt="logo">
+                </div>
+                <button class="modal__close">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="30px" height="30px"><path class="modal__svg" d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"/></svg>
+                </button>
+                <!-- <h2 class="modal__title">Связаться с нами</h2> -->
+                <form class="modal__form">
+                    <input type="text" class="modal__input" name="name" placeholder="Ваше имя">
+                    <input type="tel" class="modal__input" name="phone" placeholder="Телефон">
+                    <input type="email" class="modal__input" name="email" placeholder="Эл. почта">
+                    <button type="submit" class="modal__button">Отправить</button>
+                </form>
+        </div>
+    </section>
+    
+
+    <main class="main">
+
+        <video tabindex="-1" autoplay muted loop class="main__video">
+            <!-- <source tabindex="-1" src="./src/img/videoplayback.mp4" type="video/mp4">    -->
+        </video>
+
+        <div class="container">
+            <div class="main__blure"></div>
+            <nav class="main__grid">
+                <div class="main__grid_item-1">
+                    <a href="#" class="main__grid_link mainFX">Звук</a>
+                    <a href="#" class="main__grid_link mainFX">Свет</a> 
+                </div>
+                
+                <a href="#" class="main__grid_link mainFX main__grid_item-2">Про-кат</a>
+                <a href="#" class="main__grid_link mainFX main__grid_item-3">Инсталля-ция</a>
+            </nav>
+        </div>
+    </main>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about__wrap">
+                <h1 class="about__title">
+                    Прокат, инсталляция и проведение мероприятий
+                </h1>
+                <article class="about__article">
+                    <p class="about__text">
+                        Наша компания проектирует, организует и проводит <b>все виды мероприятий</b>, как частные, так и корпоративные. Наша <b>профессиональная команда</b> создает неповторимую атмосферу, применяя <b>лучшие</b> аудио и световые <b>технологии</b>, реализуя уникальные и персонализированные <b>решения</b>.
+                    </p>
+                </article>
+                <a href="#" class="about__link">каталог услуг</a>
+            </div>
+        </div>
+    </section>
+    <section id="apparat" class="card">
+        <div class="container">
+            <div class="card__wrap">
+                <h2 class="card__title">
+                    Наше оборудование
+                </h2>
+
+                <div class="card__inner">
+                    <a class="card__inner_item">
+                        <img src="./src/img/cardAudio.jpg" alt="audio" class="card__inner_img">
+                        <h3 class="card__inner_subtitle">Аудио</h3>
+                        <button type="button" href="#" class="about__link">подробнее</button>
+                    </a>
+
+                    <a class="card__inner_item">
+                        <img src="./src/img/cardLight.jpg" alt="light" class="card__inner_img">
+                        <h3 class="card__inner_subtitle">Свет</h3>
+                        <button type="button" href="#" class="about__link">подробнее</button>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="galary" class="galary">
+        <div class="container">
+            <div class="card__wrap galary__wrap">
+                <h2 class="card__title galary__title">
+                    Недавно проведенные мероприятия
+                </h2>
+
+                <div class="galary__slider">
+
+                    <div class="galary__btns">
+                        <button class="galary__btn galary__prev">
+                            <svg width="40" height="69" viewBox="0 0 40 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="galary__path" d="M38.9663 1.63056C40.2193 2.79245 40.3332 4.61062 39.308 5.89183L38.9663 6.25889L8.52235 34.4902L38.9663 62.7215C40.2193 63.8834 40.3332 65.7015 39.308 66.9827L38.9663 67.3498C37.7132 68.5117 35.7525 68.6173 34.3708 67.6667L33.9749 67.3498L1.03374 36.8043C-0.219276 35.6425 -0.333191 33.8243 0.692005 32.5431L1.03374 32.176L33.9749 1.63056C35.3532 0.352477 37.5879 0.352477 38.9663 1.63056Z" fill="#FAFAFA" fill-opacity="0.7"/>
+                            </svg>
+                        </button>
+                        <button class="galary__btn galary__next">
+                            <svg width="40" height="69" viewBox="0 0 40 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="galary__path" d="M38.9663 1.63056C40.2193 2.79245 40.3332 4.61062 39.308 5.89183L38.9663 6.25889L8.52235 34.4902L38.9663 62.7215C40.2193 63.8834 40.3332 65.7015 39.308 66.9827L38.9663 67.3498C37.7132 68.5117 35.7525 68.6173 34.3708 67.6667L33.9749 67.3498L1.03374 36.8043C-0.219276 35.6425 -0.333191 33.8243 0.692005 32.5431L1.03374 32.176L33.9749 1.63056C35.3532 0.352477 37.5879 0.352477 38.9663 1.63056Z" fill="#FAFAFA" fill-opacity="0.7"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="galary__slide_wrapper">
+                        <div class="galary__slide_inner">
+                            <div class="galary__slide">
+                                <img src="./src/img/slider/slide-1.jpg" alt="slide" class="galary__content">
+                            </div>
+        
+                            <div class="galary__slide">
+                                <img src="./src/img/slider/slide-2.jpg" alt="slide" class="galary__content">
+                            </div>
+        
+                            <div class="galary__slide">
+                                <img src="./src/img/slider/slide-3.jpg" alt="slide" class="galary__content">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="about__link">перейти в галерею</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bio">
+        <div class="container"> 
+            <h2 class="bio__title">
+                О нас
+            </h2>
+        
+
+            <div class="bio__flex">
+                <div class="bio__left">
+                    <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__mainPhoto">
+                    <h4 class="bio__name">Никита Федюшкин</h4>
+                    <p class="bio__position">Основатель компании</p>
+                </div>
+
+                <div class="bio__right">
+                    <article>
+                        <p class="bio__text">
+                            Почему? – Почему вы делаете то, что делаете? Например, почему вы в этом бизнесе, почему разрабатываете свой продукт или услугу? Ответ на этот вопрос прольет свет на ценности и философию компании, а это, по мнению Сайнека, может оказаться главным мотиватором купить у вас товар.
+                        </p>
+                        <p class="bio__text">
+                            Как? – Как ваш товар поможет потенциальным клиентам? Например, какие проблемы он решает, какие трудности помогает преодолеть? Здесь вы должны перечислить главные плюсы и уникальные черты вашего продукта.
+                        </p>
+                        <p class="bio__text">
+                            Что? – Что вы предлагаете? Например, какой у вас продукт или услуга, какие у него характеристики и функции? Если этот блок будет хорошо прописан, он способен сделать случайных посетителей сайта потенциальными клиентами, преисполненными любопытства.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="bio__carousel">
+
+                <div class="galary__btns bio__btns">
+                    <button class="galary__btn bio__prev">
+                        <svg width="40" height="69" viewBox="0 0 40 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="galary__path bio__path" d="M38.9663 1.63056C40.2193 2.79245 40.3332 4.61062 39.308 5.89183L38.9663 6.25889L8.52235 34.4902L38.9663 62.7215C40.2193 63.8834 40.3332 65.7015 39.308 66.9827L38.9663 67.3498C37.7132 68.5117 35.7525 68.6173 34.3708 67.6667L33.9749 67.3498L1.03374 36.8043C-0.219276 35.6425 -0.333191 33.8243 0.692005 32.5431L1.03374 32.176L33.9749 1.63056C35.3532 0.352477 37.5879 0.352477 38.9663 1.63056Z" fill="#FAFAFA" fill-opacity="0.7"/>
+                        </svg>
+                    </button>
+                    <button class="galary__btn bio__next">
+                        <svg width="40" height="69" viewBox="0 0 40 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="galary__path bio__path" d="M38.9663 1.63056C40.2193 2.79245 40.3332 4.61062 39.308 5.89183L38.9663 6.25889L8.52235 34.4902L38.9663 62.7215C40.2193 63.8834 40.3332 65.7015 39.308 66.9827L38.9663 67.3498C37.7132 68.5117 35.7525 68.6173 34.3708 67.6667L33.9749 67.3498L1.03374 36.8043C-0.219276 35.6425 -0.333191 33.8243 0.692005 32.5431L1.03374 32.176L33.9749 1.63056C35.3532 0.352477 37.5879 0.352477 38.9663 1.63056Z" fill="#FAFAFA" fill-opacity="0.7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="bio__carousel_wrap">
+                    <div class="bio__carousel_inner">
+                        <div class="bio__item">
+                            <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__item_photo">
+                            <h4 class="bio__item_name">Никита Федюшкин</h4>
+                            <p class="bio__item_position">Основатель компании</p>
+                        </div>
+                        <div class="bio__item">
+                            <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__item_photo">
+                            <h4 class="bio__item_name">Никита Федюшкин</h4>
+                            <p class="bio__item_position">Основатель компании</p>
+                        </div>
+                        <div class="bio__item">
+                            <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__item_photo">
+                            <h4 class="bio__item_name">Никита Федюшкин</h4>
+                            <p class="bio__item_position">Основатель компании</p>
+                        </div>
+                        <div class="bio__item">
+                            <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__item_photo">
+                            <h4 class="bio__item_name">Никита Федюшкин</h4>
+                            <p class="bio__item_position">Основатель компании</p>
+                        </div>
+                        <div class="bio__item">
+                            <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__item_photo">
+                            <h4 class="bio__item_name">Никита Федюшкин</h4>
+                            <p class="bio__item_position">Основатель компании</p>
+                        </div>
+                        <div class="bio__item">
+                            <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__item_photo">
+                            <h4 class="bio__item_name">Никита Федюшкин</h4>
+                            <p class="bio__item_position">Основатель компании</p>
+                        </div>
+                        <div class="bio__item">
+                            <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__item_photo">
+                            <h4 class="bio__item_name">Никита Федюшкин</h4>
+                            <p class="bio__item_position">Основатель компании</p>
+                        </div>
+                        <div class="bio__item">
+                            <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__item_photo">
+                            <h4 class="bio__item_name">Никита Федюшкин</h4>
+                            <p class="bio__item_position">Основатель компании</p>
+                        </div>
+
+                        <div class="bio__item">
+                            <img src="./src/img/about_us/Nikita.jpg" alt="photo" class="bio__item_photo">
+                            <h4 class="bio__item_name">Никита Федюшкин</h4>
+                            <p class="bio__item_position">Основатель компании</p>
+                        </div>
+                    </div>
+                </div>
+            </div>                                                              
+      </div>
+    </section>
+
+    <section class="partners">
+        <div class="container _partners__container">
+            <h2 class="partners__title">
+                Партнёры
+            </h2>
+
+            
+            <div class="partners__wrap">
+
+                <button class="partners__btn">
+                        <svg width="25" height="42" viewBox="0 0 25 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="partners__arrow" d="M0.624379 40.5981C-0.132444 39.8907 -0.201246 38.7837 0.417972 38.0036L0.624379 37.7801L19.0125 20.5909L0.624379 3.40169C-0.132444 2.69425 -0.201246 1.58722 0.417972 0.807129L0.624379 0.583637C1.3812 -0.123802 2.5655 -0.188118 3.40005 0.390697L3.63914 0.583637L23.5356 19.1819C24.2924 19.8893 24.3612 20.9963 23.742 21.7764L23.5356 21.9999L3.63914 40.5981C2.80664 41.3763 1.45688 41.3763 0.624379 40.5981Z" fill="#FAFAFA"/>
+                        </svg>
+                </button>
+
+                <div class="partners__inner">
+
+                    <!-- <div class="bio__item">
+                        <img src="./src/icons/partners/mersedes.svg" alt="anex">
+                    </div> -->
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacts">
+        <div class="container">
+            <h2 class="contacts__title">
+                Контакты
+            </h2>
+        
+            <button class="about__link contacts__btn">
+                обратная звязь 
+            </button>
+
+            <div class="contacts__map">
+                <div tabindex="-1" style="position:relative;overflow:hidden;"><a href="https://yandex.kz/maps/org/angelsmusic/46887203479/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">AngelsMusic</a><a href="https://yandex.kz/maps/213/moscow/category/sound_and_lighting_equipment/184106894/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Звуковое и световое оборудование в Москве</a><iframe src="https://yandex.kz/map-widget/v1/-/CCUnfGd4gD" width="100%" height="700" frameborder="1" allowfullscreen="false" style="position:relative;" tabindex="-1"></iframe></div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="footer" class="footer">
+        <div class="container footer__container">
+
+            <div class="footer__grid">
+                <div class="footer__column-1">
+                    <div class="header__logo footer__logo">
+                        <img src="./src/icons/MainLogo.svg" alt="AngelsMusicLogo">                    
+                    </div>
+                    <a href="#" class="footer__link">политика конфиденциальности</a>
+                </div>
+                <div class="footer__column-2">
+                    <nav class="footer__nav">
+                        <a href="#apparat" class="footer__link">Парк оборудования</a>
+                        <a href="#" class="footer__link">Услуги</a>
+                        <a href="#galary" class="footer__link">Галерея</a>
+                        <a href="#about" class="footer__link">О нас</a>
+                        <a href="#footer" class="footer__link">Контакты</a>
+                    </nav>
+                </div>
+                <div class="footer__column-3">
+                    <nav class="footer__nav">
+                        <a href="#" class="footer__link">Аренда звукового оборудования</a>
+                        <a href="#" class="footer__link">Аренда светового оборудования</a>
+                        <a href="#" class="footer__link">Обеспечение тех. райдера</a>
+                        <a href="#" class="footer__link">Подготовка тех. руководства</a>
+                        <a href="#" class="footer__link">3D визуализация мероприятия</a>
+                    </nav>
+                </div>
+                <div class="footer__column-4">
+
+                    <div class="footer__contact">
+                        <div class="footer__svg">
+                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7461 4.63148C13.6329 4.80449 14.4478 5.23817 15.0867 5.87702C15.7255 6.51586 16.1592 7.33081 16.3322 8.21756M12.7461 1C14.5884 1.20467 16.3064 2.02968 17.618 3.33959C18.9295 4.64949 19.7567 6.36643 19.9637 8.20848M19.0558 15.4533V18.1769C19.0568 18.4297 19.005 18.68 18.9038 18.9117C18.8025 19.1433 18.6539 19.3513 18.4676 19.5222C18.2813 19.6932 18.0613 19.8233 17.8218 19.9043C17.5823 19.9853 17.3285 20.0154 17.0767 19.9926C14.283 19.6891 11.5995 18.7345 9.24175 17.2055C7.04818 15.8116 5.18841 13.9518 3.79453 11.7583C2.26021 9.38981 1.30537 6.69324 1.00737 3.88702C0.984682 3.63597 1.01452 3.38294 1.09498 3.14405C1.17544 2.90515 1.30476 2.68563 1.47471 2.49946C1.64466 2.31328 1.85151 2.16453 2.0821 2.06268C2.31268 1.96083 2.56195 1.90811 2.81403 1.90787H5.53764C5.97823 1.90353 6.40537 2.05956 6.73944 2.34685C7.07351 2.63415 7.29171 3.03313 7.35338 3.46941C7.46833 4.34102 7.68153 5.19683 7.98889 6.02052C8.11103 6.34547 8.13747 6.69862 8.06506 7.03813C7.99265 7.37764 7.82444 7.68928 7.58034 7.93612L6.42735 9.08912C7.71975 11.362 9.60167 13.2439 11.8746 14.5363L13.0276 13.3833C13.2744 13.1392 13.586 12.971 13.9256 12.8986C14.2651 12.8262 14.6182 12.8527 14.9432 12.9748C15.7669 13.2822 16.6227 13.4954 17.4943 13.6103C17.9353 13.6725 18.3381 13.8947 18.626 14.2345C18.9139 14.5743 19.0669 15.008 19.0558 15.4533Z" stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                
+                        </div>
+                        <a href="+74959209059" class="footer__link">+7 (495) 920-90-59</a>
+                    </div>
+
+                    <div class="footer__contact">
+                        <div class="footer__svg">
+                            <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 1.5H19C20.1 1.5 21 2.4 21 3.5V15.5C21 16.6 20.1 17.5 19 17.5H3C1.9 17.5 1 16.6 1 15.5V3.5C1 2.4 1.9 1.5 3 1.5Z" stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 3.5L11 10.5L1 3.5" stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                
+                        </div>
+                        <a href="#" class="footer__link">show@angelsmusic.ru </a>
+                    </div>
+
+                    <div class="footer__socials">
+                        <a class="footer__svg">
+                            <img src="./src/icons/vk.svg" alt="вконтакте">
+                        </a>
+                        <a class="footer__svg">
+                            <img src="./src/icons/watsup.svg" alt="вотсап">
+                        </a>
+                        <a class="footer__svg">
+                            <img src="./src/icons/telegram.svg" alt="телеграм">
+                        </a>
+                        <a class="footer__svg footer__youtube">
+                            <img src="./src/icons/youtube.svg" alt="ютуб">  
+                        </a>
+                    </div>
+                    <a href="#header" class="footer__btn">
+                        <span>наверх страницы</span>
+                        <div class="footer__btn_svg">
+                            <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6.41406" width="8" height="2" transform="rotate(45 6.41406 0)" fill="#FAFAFA"/>
+                                <rect x="7.00098" y="1" width="13" height="2" transform="rotate(90 7.00098 1)" fill="#FAFAFA"/>
+                                <rect x="7.07227" y="1.41431" width="8" height="2" transform="rotate(135 7.07227 1.41431)" fill="#FAFAFA"/>
+                                </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/bundle.js"></script>
+    
+</body>
+</html>

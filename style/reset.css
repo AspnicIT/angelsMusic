@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+*:focus{
+    outline-style:none;
+    box-shadow: 0 0 30px rgba(255, 255, 255, .8) inset;
+    border-radius: 20px;
+}
+html{
+    background: rgb(0, 0, 0);
+}
+
+body{
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    font-family: 'Montserrat', sans-serif
+}
+
+li{
+    list-style-type: none;
+}
+
+button:hover{
+    cursor: pointer;
+}
