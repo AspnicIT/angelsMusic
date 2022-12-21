@@ -4,7 +4,6 @@
 /node_modules
 *.sass
 *css.map
-*.mp4
 
 # testing
 /coverage
