@@ -51,6 +51,42 @@ function brand(arr) {
 
 /***/ }),
 
+/***/ "./js/modules/functional/burger.js":
+/*!*****************************************!*\
+  !*** ./js/modules/functional/burger.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function burger(btnSelector, burgerSelector) {
+  const btn = document.querySelector(btnSelector),
+    burger = document.querySelector(burgerSelector);
+  btn.addEventListener('click', openMenu);
+  function openMenu() {
+    burger.style.display = 'block';
+    setTimeout(() => {
+      burger.style.opacity = '100%';
+    }, 100);
+    btn.removeEventListener('click', openMenu);
+    btn.addEventListener('click', closeMenu);
+  }
+  function closeMenu() {
+    burger.style.opacity = '0%';
+    setTimeout(() => {
+      burger.style.display = 'none';
+    }, 600);
+    btn.removeEventListener('click', closeMenu);
+    btn.addEventListener('click', openMenu);
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (burger);
+
+/***/ }),
+
 /***/ "./js/modules/functional/carousel.js":
 /*!*******************************************!*\
   !*** ./js/modules/functional/carousel.js ***!
@@ -132,10 +168,12 @@ function modal(modalSel, modalClose, modalOpen, classOpacity, classHide) {
       closeModal();
     }
   });
-  const interModal = setTimeout(() => {
-    openModal();
-  }, 10000);
+
+  // const interModal = setTimeout(() => {
+  //     openModal();
+  // }, 10000);
 }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
 
 /***/ }),
@@ -1535,8 +1573,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_functional_partners__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/functional/partners */ "./js/modules/functional/partners.js");
 /* harmony import */ var _modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/functional/carousel */ "./js/modules/functional/carousel.js");
 /* harmony import */ var _modules_functional_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/functional/modal */ "./js/modules/functional/modal.js");
-/* harmony import */ var _DB_partners_DB__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DB/partners-DB */ "./js/DB/partners-DB.js");
+/* harmony import */ var _modules_functional_burger__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/functional/burger */ "./js/modules/functional/burger.js");
+/* harmony import */ var _DB_partners_DB__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DB/partners-DB */ "./js/DB/partners-DB.js");
 (__webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-promise.js").polyfill)();
+
 
 
 
@@ -1551,9 +1591,10 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_functional_welcomeLink__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_functional_slider__WEBPACK_IMPORTED_MODULE_1__["default"])('.galary__slider', '.galary__slide', '.galary__prev', '.galary__next', '.galary__slide_wrapper', '.galary__slide_inner', true);
   (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner');
-  (0,_modules_constructors_brand__WEBPACK_IMPORTED_MODULE_0__["default"])(_DB_partners_DB__WEBPACK_IMPORTED_MODULE_6__.partnersArr);
+  (0,_modules_constructors_brand__WEBPACK_IMPORTED_MODULE_0__["default"])(_DB_partners_DB__WEBPACK_IMPORTED_MODULE_7__.partnersArr);
   (0,_modules_functional_partners__WEBPACK_IMPORTED_MODULE_3__["default"])('.partners__btn', '.partners__inner', '._partners__container');
   (0,_modules_functional_modal__WEBPACK_IMPORTED_MODULE_5__["default"])('.modal', '.modal__close', '.contacts__btn', 'ghost', 'hide');
+  (0,_modules_functional_burger__WEBPACK_IMPORTED_MODULE_6__["default"])('.main__navBtn', '.header__ul');
 });
 })();
 

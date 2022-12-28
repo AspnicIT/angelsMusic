@@ -87,6 +87,9 @@ p {
 }
 .header__logo {
   margin-bottom: -28px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .header__phone {
   font-size: 24px;
@@ -105,6 +108,7 @@ p {
   background-position: center;
   background-size: cover;
   position: relative;
+  overflow: hidden;
 }
 .main__video {
   width: 100%;
@@ -128,7 +132,7 @@ p {
   z-index: 2;
   padding: 83px 0 122px 0;
   display: grid;
-  grid-template-columns: 1fr 14px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   row-gap: 40px;
   max-width: 1017px;
 }
@@ -164,6 +168,9 @@ p {
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 4;
+}
+.main__navBtn {
+  display: none;
 }
 
 .mainFX {

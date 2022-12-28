@@ -1,0 +1,115 @@
+@media (max-width: 1400px) {
+  .container {
+    padding-top: 20px;
+    max-width: 690px;
+  }
+  .header {
+    max-width: 690px;
+    padding: 0 20px;
+    z-index: 3;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    left: auto;
+    right: 0;
+  }
+  .header__logo img {
+    width: 140px;
+  }
+  .header__wrap {
+    flex-direction: column;
+    row-gap: 40px;
+    padding-top: 0;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    float: right;
+    padding-top: 0;
+  }
+  .header__ul {
+    padding: 20px;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(17, 17, 17, 0.8470588235);
+    z-index: 10;
+    height: 380px;
+    row-gap: 12px;
+    justify-content: start;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8) inset;
+    opacity: 0%;
+    display: none;
+    transition: 0.6s;
+  }
+  .header__li {
+    width: 210px;
+    margin: 0 auto;
+  }
+  .main {
+    max-width: 690px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-height: 380px;
+  }
+  .main__navBtn {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+    background: rgba(17, 17, 17, 0.9058823529);
+    transition: 0.3s;
+    color: #fff;
+    z-index: 8;
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    width: 40px;
+    height: 40px;
+  }
+  .main__navBtn_span {
+    display: block;
+    height: 2px;
+    width: 20px;
+    margin: 0 auto;
+    background: #FFF;
+  }
+  .main__navBtn_span::before, .main__navBtn_span::after {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 20px;
+    background: #FFF;
+  }
+  .main__navBtn_span::after {
+    bottom: 12px;
+  }
+  .main__navBtn_span::before {
+    top: 12px;
+  }
+  .main__navBtn:hover, .main__navBtn:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8) inset;
+  }
+  .main__grid {
+    grid-template-columns: -webkit-fit-content;
+    grid-template-columns: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    row-gap: 0;
+    padding: 0;
+    z-index: 2;
+  }
+  .main__grid_link {
+    font-size: 42px;
+    line-height: 80px;
+  }
+  .main__grid_item-1, .main__grid_item-2, .main__grid_item-3 {
+    grid-column-start: 1;
+  }
+}/*# sourceMappingURL=adaptive.css.map */

@@ -6,30 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/reset.css">
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/adaptive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Public+Sans:wght@400;600&family=Stalinist+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/animations.css">
     <title>AngelsMusic</title>
 </head>
 <body>
-    <header id="header" class="header">
-        <div class="header__wrap">
-            <nav class="header__nav">
-                <ul class="header__ul">
-                    <li class="header__li"><a href="#apparat" class="header__link header__link_first">Парк оборудования</a></li>
-                    <li class="header__li"><a href="#" class="header__link">Услуги</a></li>
-                    <li class="header__li"><a href="#galary" class="header__link">Галерея</a></li>
-                    <li class="header__li"><a href="#about" class="header__link">О нас</a></li>
-                    <li class="header__li"><a href="#footer" class="header__link">Контакты</a></li>              
-                </ul>
-            </nav>
-
-            <div class="header__logo">
-                <img src="./src/icons/MainLogo.svg" alt="AngelsMusicLogo">                    
-            </div>
-
-            <a href="+74959209059" class="header__link header__phone">+7 (495) 920 90 59</a>
-        </div>
-    </header>
+    
 
     <section class="modal ghost hide">
             <div class="modal__body">
@@ -52,6 +35,30 @@
 
     <main class="main">
 
+        <button type="button" class="main__navBtn">
+            <span class="main__navBtn_span" ></span>
+        </button>
+
+        <header id="header" class="header">
+            <div class="header__wrap">
+                <nav class="header__nav">
+                    <ul class="header__ul">
+                        <li class="header__li"><a href="#apparat" class="header__link header__link_first">Парк оборудования</a></li>
+                        <li class="header__li"><a href="#" class="header__link">Услуги</a></li>
+                        <li class="header__li"><a href="#galary" class="header__link">Галерея</a></li>
+                        <li class="header__li"><a href="#about" class="header__link">О нас</a></li>
+                        <li class="header__li"><a href="#footer" class="header__link">Контакты</a></li>              
+                    </ul>
+                </nav>
+    
+                <div class="header__logo">
+                    <img src="./src/icons/MainLogo.svg" alt="AngelsMusicLogo">                    
+                </div>
+    
+                <a href="+74959209059" class="header__link header__phone">+7 (495) 920 90 59</a>
+            </div>
+        </header>
+
         <video tabindex="-1" autoplay muted loop class="main__video">
             <source tabindex="-1" src="./src/img/videoplayback.mp4" type="video/mp4">   
         </video>
@@ -64,8 +71,8 @@
                     <a href="#" class="main__grid_link mainFX">Свет</a> 
                 </div>
                 
-                <a href="#" class="main__grid_link mainFX main__grid_item-2">Про-кат</a>
-                <a href="#" class="main__grid_link mainFX main__grid_item-3">Инсталля-ция</a>
+                <a href="#" class="main__grid_link mainFX main__grid_item-2">Прокат</a>
+                <a href="#" class="main__grid_link mainFX main__grid_item-3">Инсталляция</a>
             </nav>
         </div>
     </main>

@@ -6,6 +6,7 @@ import welcomeLink from "./modules/functional/welcomeLink";
 import partners from "./modules/functional/partners";
 import carousel from "./modules/functional/carousel";
 import modal from "./modules/functional/modal";
+import burger from "./modules/functional/burger";
 
 ////Arrey
 
@@ -48,6 +49,10 @@ window.addEventListener('DOMContentLoaded', () => {
         '.contacts__btn',
         'ghost',
         'hide'
+    );
+    burger(
+        '.main__navBtn',
+        '.header__ul'
     );
     
 })
