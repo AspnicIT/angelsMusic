@@ -48,6 +48,7 @@
     margin: 0 auto;
   }
   .main {
+    position: relative;
     max-width: 690px;
     padding: 0 20px;
     margin: 0 auto;
@@ -111,5 +112,127 @@
   }
   .main__grid_item-1, .main__grid_item-2, .main__grid_item-3 {
     grid-column-start: 1;
+  }
+  .card {
+    margin: 0 auto;
+  }
+  .card__inner {
+    max-width: 690px;
+  }
+  .card__inner_img {
+    width: 290px;
+    margin: 0 auto 20px auto;
+  }
+  .card__title {
+    margin-bottom: 40px;
+  }
+  .galary__slide {
+    align-content: center;
+    display: flex;
+  }
+  .galary__content {
+    width: 690px;
+    height: auto;
+  }
+  .bio {
+    margin: 0 auto;
+  }
+  .bio__title {
+    margin-bottom: 20px;
+  }
+  .bio__flex {
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .bio__mainPhoto {
+    width: 300px;
+    margin-bottom: 10px;
+  }
+  .bio__text {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+  .bio__name, .bio__item_name {
+    font-size: 22px;
+  }
+  .bio__position, .bio__item_position {
+    font-size: 18px;
+  }
+}
+@media (max-width: 700px) {
+  .container {
+    max-width: 315px;
+  }
+  .header {
+    max-width: 320px;
+  }
+  .header__logo img {
+    width: 120px;
+  }
+  .header__logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  .header__phone {
+    font-size: 16px;
+    position: absolute;
+    top: 300px;
+  }
+  .header__nav {
+    width: 320px;
+  }
+  .header__wrap {
+    width: 100%;
+  }
+  .main {
+    max-width: 320px;
+  }
+  .main__video {
+    display: none;
+  }
+  .main__navBtn {
+    right: 0;
+    left: auto;
+    top: 20px;
+  }
+  .main__grid {
+    margin: 0 auto;
+    padding-top: 80px;
+  }
+  .main__grid_link {
+    font-size: 20px;
+    line-height: 40px;
+  }
+  .about {
+    margin: 0 auto;
+  }
+  .about__title {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .card__title {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .card__inner {
+    max-width: 690px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+  }
+  .card__inner_item {
+    text-align: center;
+  }
+  .card__inner_subtitle {
+    margin-bottom: 20px;
+  }
+  .galary__content {
+    width: 320px;
   }
 }/*# sourceMappingURL=adaptive.css.map */
