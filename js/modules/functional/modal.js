@@ -40,7 +40,12 @@ function modal(
     
     const interModal = setTimeout(() => {
         openModal();
-    }, 10000);
+    }, 100000);
+
 }
+
+
+
+
 
 export default modal;

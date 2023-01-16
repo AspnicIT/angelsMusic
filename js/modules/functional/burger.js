@@ -17,12 +17,24 @@ function burger(btnSelector, burgerSelector) {
 
         function closeMenu(){
             burger.style.opacity = '0%';
+            restartOnResizing();
             setTimeout(() => {
                 burger.style.display = 'none';
             }, 600);
             btn.removeEventListener('click', closeMenu);
             btn.addEventListener('click', openMenu);
         }
+
+        
+    function restartOnResizing(){
+        window.addEventListener('resize', (e) => {
+            if(e.target.innerWidth >= 1401){
+            burger.style.display = '';
+            burger.style.opacity = '';
+        }
+        })
+        
+    }
 }
 
 export default burger;
