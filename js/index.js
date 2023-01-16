@@ -3,6 +3,7 @@ require('es6-promise').polyfill();
 import brand from "./modules/constructors/brand";
 import slider from "./modules/functional/slider";
 import welcomeLink from "./modules/functional/welcomeLink";
+import mainBackground from "./modules/constructors/mainBackground";
 import carousel from "./modules/functional/carousel";
 import partners from "./modules/functional/partners";
 import modal from "./modules/functional/modal";
@@ -15,14 +16,21 @@ import { partnersArr } from "./DB/partners-DB";
 
 
 window.addEventListener('DOMContentLoaded', () => {
-
+    'use strict';
     welcomeLink();
+
+    mainBackground(
+        '.main__video',
+        "../src/img/videoplayback.mp4",
+    );
+
     slider(
         '.galary__slider', 
         '.galary__slide', 
         '.galary__prev', 
         '.galary__next', 
         '.galary__slide_wrapper', 
+        '.galary__btns',
         '.galary__slide_inner', 
         true
         );
@@ -59,5 +67,6 @@ window.addEventListener('DOMContentLoaded', () => {
         '.main__navBtn',
         '.header__ul'
     );
+
     
 })

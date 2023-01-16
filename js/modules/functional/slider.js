@@ -1,12 +1,31 @@
-function slider(container, items, prevBtn, nextBtn, wrap, inn, autoplay){
+function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, autoplay){
 
     const slider = document.querySelector(container), 
         slides = document.querySelectorAll(items),
         prev = document.querySelector(prevBtn),
         next = document.querySelector(nextBtn),
         slidesWrapper = document.querySelector(wrap),
-        slidesField = document.querySelector(inn),
+        btnsblock = document.querySelector(selBtnsBlock),
+        slidesField = document.querySelector(inn);
+
+    let width = window.getComputedStyle(slidesWrapper).width;
+
+    window.addEventListener('orientationchange', () => {
+        onResizing();
+    });
+    window.addEventListener('resize', () => {
+        onResizing();
+    });
+
+    function onResizing(){
         width = window.getComputedStyle(slidesWrapper).width;
+        slides.forEach(slide => {
+            slide.style.width = width;
+        });
+        offset = 0;
+        slidesField.style.transform = `translateX(-${offset}px)`;
+
+    }
 
     let offset = 0;
     let playSlides = autoplay;
@@ -28,7 +47,7 @@ function slider(container, items, prevBtn, nextBtn, wrap, inn, autoplay){
 
     slidesField.style.width = 100 * slides.length + '%';
     slidesField.style.display = 'flex';
-    slidesField.style.transition = '1s all';
+    slidesField.style.transition = '.6s all';
     slidesWrapper.style.cssText = `
                                         overflow: hidden;
                                         position: relative;
@@ -68,7 +87,6 @@ function slider(container, items, prevBtn, nextBtn, wrap, inn, autoplay){
     play();
 
 
-
     next.addEventListener('click', () => {
         playSlides = false;
         nextSlide();
@@ -78,35 +96,47 @@ function slider(container, items, prevBtn, nextBtn, wrap, inn, autoplay){
         playSlides = false;
         prevSlide();
     });
-
-
-
-    let startPointX;
-    let endPontX;
-    
-    slidesWrapper.addEventListener('touchstart', (event) =>{
-        event.preventDefault();
-        event.stopPropagation();
-        startPointX = Math.floor(event.targetTouches[0].pageX);
-        // console.log(startPointX);
-
+    next.addEventListener('touchstart', () => {
+        playSlides = false;
+        nextSlide();
     });
-    slidesWrapper.addEventListener('touchmove', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        endPontX = Math.floor(event.targetTouches[0].pageX);
-    });
-    slidesWrapper.addEventListener('touchend', () => {
-        if(startPointX > endPontX){
-            playSlides = false
-            nextSlide()
-        } else{
-            playSlides = false
-            prevSlide()
-        }
 
+    prev.addEventListener('touchstart', () => {
+        playSlides = false;
+        prevSlide();
+    });
+
+    function onSwipe(section, next, prev){
         
-    })
+        let startPointX;
+        let endPontX;
+    
+        section.addEventListener('touchstart', (event) =>{
+            event.preventDefault();
+            event.stopPropagation();
+            startPointX = Math.floor(event.targetTouches[0].pageX);
+            endPontX = 0;
+    
+        });
+        section.addEventListener('touchmove', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            endPontX = Math.floor(event.targetTouches[0].pageX);
+        });
+        section.addEventListener('touchend', () => {
+            if(startPointX > endPontX){
+                playSlides = false;
+                next();
+            } else{
+                playSlides = false;
+                prev();
+            }
+        });
+    }
+
+    
+    onSwipe(slidesWrapper, nextSlide, prevSlide);
+    onSwipe(btnsblock, nextSlide, prevSlide);
 }
 
 

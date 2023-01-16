@@ -25,6 +25,9 @@ function partners(nextBtn, inn, containerSel, imgs) {
       };
 
       getAllImgsWidth();
+
+      window.addEventListener('orientationchange', getAllImgsWidth());
+      window.addEventListener('resize', getAllImgsWidth());
      
 
    setInterval(() => {

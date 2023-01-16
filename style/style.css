@@ -255,6 +255,7 @@ p {
   background: #fafafa;
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 .galary__slider {
   position: relative;
@@ -279,7 +280,7 @@ p {
   transform: translate(-50%);
   display: flex;
   justify-content: space-between;
-  z-index: 5;
+  z-index: 3;
 }
 .galary__next {
   transform: rotate(180deg);

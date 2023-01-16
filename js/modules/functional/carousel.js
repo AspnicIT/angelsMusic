@@ -4,8 +4,16 @@
             allEmployees = document.querySelectorAll(allPhoto),
             left = document.querySelector(leftBtn),
             right = document.querySelector(rightBtn),
-            slidesField = document.querySelector(inn),
-            width = window.getComputedStyle(photo).width;
+            slidesField = document.querySelector(inn);
+            let width = window.getComputedStyle(photo).width;
+
+            window.addEventListener('orientationchange', () => {
+               width = window.getComputedStyle(photo).width;
+            });
+            window.addEventListener('resize', () => {
+               width = window.getComputedStyle(photo).width;
+            });
+
 
 
             function fullOffset(str) {

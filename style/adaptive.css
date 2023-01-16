@@ -262,11 +262,17 @@
   .galary__content {
     width: 320px;
   }
+  .galary__arrows {
+    width: 20px;
+  }
   .bio__flex {
     flex-direction: column;
   }
   .bio__carousel_wrap {
     transform: translateX(20px);
+  }
+  .bio__left {
+    margin-bottom: 20px;
   }
   .contacts__title {
     margin-bottom: 80px;
