@@ -10,7 +10,6 @@ function partners(nextBtn, inn, containerSel, imgs) {
 
       let offset = 0;
       let gaps = fullOffset(window.getComputedStyle(carousel).columnGap) * (allImgs.length - 2);
-      console.log(gaps);
       let allImgsWidth = 0;
 
       

@@ -9,7 +9,18 @@ function slider(container, items, prevBtn, nextBtn, wrap, inn, autoplay){
         width = window.getComputedStyle(slidesWrapper).width;
 
     let offset = 0;
+    let playSlides = autoplay;
 
+
+    setInterval(() => {
+        playSlides = true;
+    }, 120000);
+
+    function play(){
+        setInterval(() => {
+            playSlides ? nextSlide() : null;
+        }, 6000);
+}
 
     function fullOffset(str) {
         return +str.replace(/\D/g, '');
@@ -44,27 +55,59 @@ function slider(container, items, prevBtn, nextBtn, wrap, inn, autoplay){
 
     }
 
-
-
-    next.addEventListener('click', nextSlide);
-
-    prev.addEventListener('click', () => {
+    function prevSlide(){
         if (offset == 0) {//'500px'
             offset = fullOffset(width) * (slides.length - 1);
         } else {
             offset -= fullOffset(width);
         }
         fieldTransfom();
+        
+    }
 
+    play();
+
+
+
+    next.addEventListener('click', () => {
+        playSlides = false;
+        nextSlide();
     });
 
+    prev.addEventListener('click', () => {
+        playSlides = false;
+        prevSlide();
+    });
+
+
+
+    let startPointX;
+    let endPontX;
     
-        if(autoplay === true){
-            setInterval(() => {
-                nextSlide()
-            }, 4000);
+    slidesWrapper.addEventListener('touchstart', (event) =>{
+        event.preventDefault();
+        event.stopPropagation();
+        startPointX = Math.floor(event.targetTouches[0].pageX);
+        // console.log(startPointX);
+
+    });
+    slidesWrapper.addEventListener('touchmove', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        endPontX = Math.floor(event.targetTouches[0].pageX);
+    });
+    slidesWrapper.addEventListener('touchend', () => {
+        if(startPointX > endPontX){
+            playSlides = false
+            nextSlide()
+        } else{
+            playSlides = false
+            prevSlide()
         }
-    
+
+        
+    })
 }
+
 
 export default slider;

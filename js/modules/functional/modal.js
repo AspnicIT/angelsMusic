@@ -38,9 +38,9 @@ function modal(
         }
     });
     
-    // const interModal = setTimeout(() => {
-    //     openModal();
-    // }, 10000);
+    const interModal = setTimeout(() => {
+        openModal();
+    }, 10000);
 }
 
 export default modal;

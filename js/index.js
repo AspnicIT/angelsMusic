@@ -48,7 +48,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 1000);
     
 
-
     modal(
         '.modal',
         '.modal__close',

@@ -169,12 +169,10 @@ function modal(modalSel, modalClose, modalOpen, classOpacity, classHide) {
       closeModal();
     }
   });
-
-  // const interModal = setTimeout(() => {
-  //     openModal();
-  // }, 10000);
+  const interModal = setTimeout(() => {
+    openModal();
+  }, 10000);
 }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
 
 /***/ }),
@@ -198,7 +196,6 @@ function partners(nextBtn, inn, containerSel, imgs) {
   const allImgs = document.querySelectorAll(imgs);
   let offset = 0;
   let gaps = fullOffset(window.getComputedStyle(carousel).columnGap) * (allImgs.length - 2);
-  console.log(gaps);
   let allImgsWidth = 0;
   function getAllImgsWidth() {
     allImgs.forEach(item => {
@@ -248,6 +245,15 @@ function slider(container, items, prevBtn, nextBtn, wrap, inn, autoplay) {
     slidesField = document.querySelector(inn),
     width = window.getComputedStyle(slidesWrapper).width;
   let offset = 0;
+  let playSlides = autoplay;
+  setInterval(() => {
+    playSlides = true;
+  }, 120000);
+  function play() {
+    setInterval(() => {
+      playSlides ? nextSlide() : null;
+    }, 6000);
+  }
   function fullOffset(str) {
     return +str.replace(/\D/g, '');
   }
@@ -275,8 +281,7 @@ function slider(container, items, prevBtn, nextBtn, wrap, inn, autoplay) {
     }
     fieldTransfom();
   }
-  next.addEventListener('click', nextSlide);
-  prev.addEventListener('click', () => {
+  function prevSlide() {
     if (offset == 0) {
       //'500px'
       offset = fullOffset(width) * (slides.length - 1);
@@ -284,12 +289,39 @@ function slider(container, items, prevBtn, nextBtn, wrap, inn, autoplay) {
       offset -= fullOffset(width);
     }
     fieldTransfom();
-  });
-  if (autoplay === true) {
-    setInterval(() => {
-      nextSlide();
-    }, 4000);
   }
+  play();
+  next.addEventListener('click', () => {
+    playSlides = false;
+    nextSlide();
+  });
+  prev.addEventListener('click', () => {
+    playSlides = false;
+    prevSlide();
+  });
+  let startPointX;
+  let endPontX;
+  slidesWrapper.addEventListener('touchstart', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    startPointX = Math.floor(event.targetTouches[0].pageX);
+    // console.log(startPointX);
+  });
+
+  slidesWrapper.addEventListener('touchmove', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    endPontX = Math.floor(event.targetTouches[0].pageX);
+  });
+  slidesWrapper.addEventListener('touchend', () => {
+    if (startPointX > endPontX) {
+      playSlides = false;
+      nextSlide();
+    } else {
+      playSlides = false;
+      prevSlide();
+    }
+  });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);
 
