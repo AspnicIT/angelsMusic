@@ -449,7 +449,7 @@ p {
   display: block;
   color: #FFF;
   padding: 8px 0;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 .footer__nav {
   display: flex;
@@ -470,6 +470,15 @@ p {
 .footer__svg {
   margin-bottom: -4px;
 }
+.footer__social-links {
+  opacity: 60%;
+  transition: 0.3s;
+  position: relative;
+  z-index: 2;
+}
+.footer__social-links:hover, .footer__social-links:focus {
+  opacity: 100%;
+}
 .footer__socials {
   padding-top: 16px;
   display: flex;
@@ -477,8 +486,8 @@ p {
   -moz-column-gap: 20px;
        column-gap: 20px;
 }
-.footer__youtube {
-  margin-bottom: -6px;
+.footer__social-links:nth-child(4) img {
+  margin-bottom: -24px;
 }
 .footer__btn {
   padding: 25px 36px;
