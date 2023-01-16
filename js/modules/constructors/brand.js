@@ -1,5 +1,5 @@
-function brand (arr) {
 
+function brand (arr) {
 
     const parent = document.querySelector('.partners__inner');
 
@@ -18,7 +18,8 @@ function brand (arr) {
             logoBlock.classList.add('bio__item');
             logoBlock.innerHTML = 
             `
-                        <img src="./src/icons/partners/${this.name}.svg" alt="${this.name}">
+                        <img src="./src/icons/partners/${this.name}.svg" alt="${this.name}"
+                        class="_brandItem">
             `;
 
             parent.append(logoBlock);
@@ -32,6 +33,7 @@ function brand (arr) {
     ).render();
     });
     
+
     
 }
 export default brand;

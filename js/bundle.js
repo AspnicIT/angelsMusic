@@ -38,7 +38,8 @@ function brand(arr) {
       let logoBlock = document.createElement('div');
       logoBlock.classList.add('bio__item');
       logoBlock.innerHTML = `
-                        <img src="./src/icons/partners/${this.name}.svg" alt="${this.name}">
+                        <img src="./src/icons/partners/${this.name}.svg" alt="${this.name}"
+                        class="_brandItem">
             `;
       parent.append(logoBlock);
     }
@@ -189,26 +190,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function partners(nextBtn, inn, containerSel) {
+function partners(nextBtn, inn, containerSel, imgs) {
   const btn = document.querySelector(nextBtn),
     carousel = document.querySelector(inn),
     container = document.querySelector(containerSel),
     windowVW = window.getComputedStyle(container).width;
+  const allImgs = document.querySelectorAll(imgs);
   let offset = 0;
-  let maxOffset = window.getComputedStyle(carousel).width;
+  let gaps = fullOffset(window.getComputedStyle(carousel).columnGap) * (allImgs.length - 2);
+  console.log(gaps);
+  let allImgsWidth = 0;
+  function getAllImgsWidth() {
+    allImgs.forEach(item => {
+      allImgsWidth += item.offsetWidth;
+    });
+    allImgsWidth += gaps;
+    allImgsWidth = allImgsWidth - allImgsWidth * 2;
+  }
+  ;
+  getAllImgsWidth();
+  setInterval(() => {
+    if (offset < allImgsWidth) {
+      carousel.style.transform = `translateX(-0px)`;
+      offset = 100;
+    }
+    offset -= 4;
+    carousel.style.transform = `translateX(${offset}px)`;
+  }, 100);
   function fullOffset(str) {
     return +str.replace(/\D/g, '');
   }
-  setInterval(() => {
-    if (offset > fullOffset(maxOffset)) {
-      carousel.style.transform = `translateX(-0px)`;
-      offset = 0;
-    }
-    offset += 4;
-    carousel.style.transform = `translateX(-${offset}px)`;
-  }, 100);
   btn.addEventListener('click', () => {
-    offset = offset + Math.floor(fullOffset(windowVW) / 8);
+    offset = offset - Math.floor(fullOffset(windowVW) / 2);
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (partners);
@@ -1570,8 +1583,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_constructors_brand__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/constructors/brand */ "./js/modules/constructors/brand.js");
 /* harmony import */ var _modules_functional_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/functional/slider */ "./js/modules/functional/slider.js");
 /* harmony import */ var _modules_functional_welcomeLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/functional/welcomeLink */ "./js/modules/functional/welcomeLink.js");
-/* harmony import */ var _modules_functional_partners__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/functional/partners */ "./js/modules/functional/partners.js");
-/* harmony import */ var _modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/functional/carousel */ "./js/modules/functional/carousel.js");
+/* harmony import */ var _modules_functional_carousel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/functional/carousel */ "./js/modules/functional/carousel.js");
+/* harmony import */ var _modules_functional_partners__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/functional/partners */ "./js/modules/functional/partners.js");
 /* harmony import */ var _modules_functional_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/functional/modal */ "./js/modules/functional/modal.js");
 /* harmony import */ var _modules_functional_burger__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/functional/burger */ "./js/modules/functional/burger.js");
 /* harmony import */ var _DB_partners_DB__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DB/partners-DB */ "./js/DB/partners-DB.js");
@@ -1590,9 +1603,11 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_functional_welcomeLink__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_functional_slider__WEBPACK_IMPORTED_MODULE_1__["default"])('.galary__slider', '.galary__slide', '.galary__prev', '.galary__next', '.galary__slide_wrapper', '.galary__slide_inner', true);
-  (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner');
+  (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_3__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner');
   (0,_modules_constructors_brand__WEBPACK_IMPORTED_MODULE_0__["default"])(_DB_partners_DB__WEBPACK_IMPORTED_MODULE_7__.partnersArr);
-  (0,_modules_functional_partners__WEBPACK_IMPORTED_MODULE_3__["default"])('.partners__btn', '.partners__inner', '._partners__container');
+  setTimeout(() => {
+    (0,_modules_functional_partners__WEBPACK_IMPORTED_MODULE_4__["default"])('.partners__btn', '.partners__inner', '._partners__container', '._brandItem');
+  }, 1000);
   (0,_modules_functional_modal__WEBPACK_IMPORTED_MODULE_5__["default"])('.modal', '.modal__close', '.contacts__btn', 'ghost', 'hide');
   (0,_modules_functional_burger__WEBPACK_IMPORTED_MODULE_6__["default"])('.main__navBtn', '.header__ul');
 });

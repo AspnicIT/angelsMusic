@@ -378,6 +378,9 @@ p {
   padding-left: 40px;
   position: relative;
   z-index: 1;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .partners__btn {
   position: absolute;

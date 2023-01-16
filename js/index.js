@@ -3,10 +3,11 @@ require('es6-promise').polyfill();
 import brand from "./modules/constructors/brand";
 import slider from "./modules/functional/slider";
 import welcomeLink from "./modules/functional/welcomeLink";
-import partners from "./modules/functional/partners";
 import carousel from "./modules/functional/carousel";
+import partners from "./modules/functional/partners";
 import modal from "./modules/functional/modal";
 import burger from "./modules/functional/burger";
+
 
 ////Arrey
 
@@ -33,15 +34,20 @@ window.addEventListener('DOMContentLoaded', () => {
         '.bio__next', 
         '.bio__carousel_inner'
     );
-    
+       
     brand(partnersArr);
-   
+    
 
-    partners(
+    setTimeout(() => {
+       partners(
         '.partners__btn',
         '.partners__inner',
-        '._partners__container'
-        );
+        '._partners__container',
+        '._brandItem'
+        ); 
+    }, 1000);
+    
+
 
     modal(
         '.modal',
