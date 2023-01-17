@@ -50,7 +50,7 @@ import onSwipe from "./onSwipe";
       left.addEventListener('click', toLeft);  
 
       function empty(){
-         console.log('good');
+         return;
       }
 
       onSwipe(carouselBlock, toRight, toLeft, empty);

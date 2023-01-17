@@ -274,6 +274,13 @@
   .bio__left {
     margin-bottom: 20px;
   }
+  .partners {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  ._brandItem {
+    height: 80px;
+  }
   .contacts__title {
     margin-bottom: 80px;
   }
