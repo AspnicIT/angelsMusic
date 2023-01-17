@@ -66,22 +66,24 @@ __webpack_require__.r(__webpack_exports__);
 function mainBackground(selvideoParent, srcVideo) {
   const videoParent = document.querySelector(selvideoParent);
   let windowWidth = window.innerWidth;
-  windowWidth > 700 ? setBackVideo() : null;
   function setBackVideo() {
     let videoBackground = document.createElement('source');
     videoBackground.setAttribute('tabindex', '-1');
-    videoBackground.setAttribute('type', 'video/mp4');
     videoBackground.setAttribute('src', srcVideo);
+    videoBackground.setAttribute('type', 'video/mp4');
     videoParent.append(videoBackground);
   }
-  window.addEventListener('resize', function loadBackground() {
-    windowWidth = window.innerWidth;
-    if (windowWidth > 700) {
-      setBackVideo();
-      removeEventListener('resize', loadBackground);
-    }
-  });
+  windowWidth > 700 ? setBackVideo() : null;
+
+  // window.addEventListener('resize', function loadBackground() {
+  //     windowWidth = window.innerWidth;
+  //     if(windowWidth > 700){
+  //         setBackVideo();
+  //         removeEventListener('resize', loadBackground);
+  //     }
+  // });
 }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mainBackground);
 
 /***/ }),
@@ -1728,10 +1730,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  'use strict';
-
+  // 'use strict';
   (0,_modules_functional_welcomeLink__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  (0,_modules_constructors_mainBackground__WEBPACK_IMPORTED_MODULE_3__["default"])('.main__video', "../src/img/videoplayback.mp4");
+  (0,_modules_constructors_mainBackground__WEBPACK_IMPORTED_MODULE_3__["default"])('.main__video', "./src/img/videoplayback.mp4");
   (0,_modules_functional_slider__WEBPACK_IMPORTED_MODULE_1__["default"])('.galary__slider', '.galary__slide', '.galary__prev', '.galary__next', '.galary__slide_wrapper', '.galary__btns', '.galary__slide_inner', true);
   (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner', '.bio__carousel', '.bio__btns');
   (0,_modules_constructors_brand__WEBPACK_IMPORTED_MODULE_0__["default"])(_DB_partners_DB__WEBPACK_IMPORTED_MODULE_8__.partnersArr);

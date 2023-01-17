@@ -4,28 +4,28 @@ function mainBackground(selvideoParent, srcVideo){
     
     let windowWidth = window.innerWidth;
 
-    windowWidth > 700 ? setBackVideo() : null;
+   
 
     function setBackVideo(){
 
         let videoBackground = document.createElement('source');
             videoBackground.setAttribute('tabindex', '-1');
-            videoBackground.setAttribute('type', 'video/mp4');
             videoBackground.setAttribute('src', srcVideo);
+            videoBackground.setAttribute('type', 'video/mp4');
         
         videoParent.append(videoBackground);
     }
     
-
+    windowWidth > 700 ? setBackVideo() : null;
     
 
-    window.addEventListener('resize', function loadBackground() {
-        windowWidth = window.innerWidth;
-        if(windowWidth > 700){
-            setBackVideo();
-            removeEventListener('resize', loadBackground)
-        }
-    })
+    // window.addEventListener('resize', function loadBackground() {
+    //     windowWidth = window.innerWidth;
+    //     if(windowWidth > 700){
+    //         setBackVideo();
+    //         removeEventListener('resize', loadBackground);
+    //     }
+    // });
 
 }
 

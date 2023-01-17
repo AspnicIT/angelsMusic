@@ -16,12 +16,12 @@ import { partnersArr } from "./DB/partners-DB";
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    'use strict';
+    // 'use strict';
     welcomeLink();
 
     mainBackground(
         '.main__video',
-        "../src/img/videoplayback.mp4",
+        "./src/img/videoplayback.mp4",
     );
 
     slider(
