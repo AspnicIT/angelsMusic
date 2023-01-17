@@ -182,14 +182,13 @@ function carousel(photoSel, allPhoto, leftBtn, rightBtn, inn, selCarouselBlock, 
   }
   right.addEventListener('click', toRight);
   left.addEventListener('click', toLeft);
-  right.addEventListener('touchend', toRight);
-  left.addEventListener('touchend', toLeft);
   function empty() {
-    return;
+    let empty = '';
   }
-  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(carouselBlock, toRight, toLeft, null);
-  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(btnsBlock, toRight, toLeft, null);
+  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(carouselBlock, toRight, toLeft, empty);
+  // onSwipe(btnsBlock, toRight, toLeft, empty);
 }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (carousel);
 
 /***/ }),
@@ -278,12 +277,14 @@ function onSwipe(section, next, prev, changeVar) {
     }
   });
   section.addEventListener('touchend', () => {
-    changeVar();
     if (startPointX > endPontX) {
       next();
+      console.log('pravo');
     } else {
       prev();
+      console.log('levo');
     }
+    changeVar();
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (onSwipe);
@@ -334,7 +335,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _onSwipe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./onSwipe */ "./js/modules/functional/onSwipe.js");
 
-function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, autoplay) {
+function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn) {
   const slider = document.querySelector(container),
     slides = document.querySelectorAll(items),
     prev = document.querySelector(prevBtn),
@@ -358,7 +359,7 @@ function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, aut
     slidesField.style.transform = `translateX(-${offset}px)`;
   }
   let offset = 0;
-  let playSlides = autoplay;
+  let playSlides = true;
   setInterval(() => {
     playSlides = true;
   }, 120000);
@@ -1733,8 +1734,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // 'use strict';
   (0,_modules_functional_welcomeLink__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_constructors_mainBackground__WEBPACK_IMPORTED_MODULE_3__["default"])('.main__video', "./src/img/videoplayback.mp4");
-  (0,_modules_functional_slider__WEBPACK_IMPORTED_MODULE_1__["default"])('.galary__slider', '.galary__slide', '.galary__prev', '.galary__next', '.galary__slide_wrapper', '.galary__btns', '.galary__slide_inner', true);
-  (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner', '.bio__carousel', '.bio__btns');
+  (0,_modules_functional_slider__WEBPACK_IMPORTED_MODULE_1__["default"])('.galary__slider', '.galary__slide', '.galary__prev', '.galary__next', '.galary__slide_wrapper', '.galary__btns', '.galary__slide_inner');
+  (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner', '.bio__carousel', '._swipeBtns');
   (0,_modules_constructors_brand__WEBPACK_IMPORTED_MODULE_0__["default"])(_DB_partners_DB__WEBPACK_IMPORTED_MODULE_8__.partnersArr);
   setTimeout(() => {
     (0,_modules_functional_partners__WEBPACK_IMPORTED_MODULE_5__["default"])('.partners__wrap');

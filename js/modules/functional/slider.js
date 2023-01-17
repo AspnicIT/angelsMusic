@@ -1,7 +1,7 @@
 import onSwipe from "./onSwipe";
 
 
-function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, autoplay){
+function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn){
 
     const slider = document.querySelector(container), 
         slides = document.querySelectorAll(items),
@@ -31,7 +31,7 @@ function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, aut
     }
 
     let offset = 0;
-    let playSlides = autoplay;
+    let playSlides = true;
 
 
     setInterval(() => {

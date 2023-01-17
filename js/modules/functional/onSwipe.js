@@ -30,13 +30,15 @@ function onSwipe(section, next, prev, changeVar){
         
     });
     section.addEventListener('touchend', () => {
-        changeVar();
+        
         if(startPointX > endPontX){
             next();
+            console.log('pravo');
         } else{
             prev();
+            console.log('levo');
         }
-        
+        changeVar();
     });
 }
 

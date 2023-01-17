@@ -48,15 +48,14 @@ import onSwipe from "./onSwipe";
       
       right.addEventListener('click', toRight);  
       left.addEventListener('click', toLeft);  
-      right.addEventListener('touchend', toRight);  
-      left.addEventListener('touchend', toLeft);  
 
-      function empty(){
-         return;
+
+      function empty() {
+         let empty = '';
       }
-
-      onSwipe(carouselBlock, toRight, toLeft, null);
-      onSwipe(btnsBlock, toRight, toLeft, null);
+      
+      onSwipe(carouselBlock, toRight, toLeft, empty);
+      // onSwipe(btnsBlock, toRight, toLeft, empty);
    }
 
 export default carousel;

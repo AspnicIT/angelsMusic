@@ -31,8 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
         '.galary__next', 
         '.galary__slide_wrapper', 
         '.galary__btns',
-        '.galary__slide_inner', 
-        true
+        '.galary__slide_inner'
         );
 
     carousel(
@@ -42,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
         '.bio__next', 
         '.bio__carousel_inner',
         '.bio__carousel',
-        '.bio__btns'
+        '._swipeBtns'
     );
        
     brand(partnersArr);
