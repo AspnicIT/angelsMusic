@@ -299,22 +299,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function partners(inn, imgs, selWrap) {
-  const carousel = document.querySelector(inn),
-    allImgs = document.querySelectorAll(imgs),
-    scrollWrap = document.querySelector(selWrap);
-  let gaps = fullOffset(window.getComputedStyle(carousel).columnGap) * (allImgs.length - 2);
-  let allImgsWidth = 0;
-  function getAllImgsWidth() {
-    allImgs.forEach(item => {
-      allImgsWidth += item.offsetWidth;
-    });
-    allImgsWidth += gaps;
-  }
-  ;
-  getAllImgsWidth();
-  window.addEventListener('orientationchange', getAllImgsWidth());
-  window.addEventListener('resize', getAllImgsWidth());
+function partners(selWrap) {
+  const scrollWrap = document.querySelector(selWrap);
   let scrollindex = 0;
   let toward = 1;
   setInterval(() => {
@@ -328,9 +314,6 @@ function partners(inn, imgs, selWrap) {
       toward = 1;
     }
   }, 100);
-  function fullOffset(str) {
-    return +str.replace(/\D/g, '');
-  }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (partners);
 
@@ -1753,7 +1736,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner', '.bio__carousel', '.bio__btns');
   (0,_modules_constructors_brand__WEBPACK_IMPORTED_MODULE_0__["default"])(_DB_partners_DB__WEBPACK_IMPORTED_MODULE_8__.partnersArr);
   setTimeout(() => {
-    (0,_modules_functional_partners__WEBPACK_IMPORTED_MODULE_5__["default"])('.partners__inner', '._brandItem', '.partners__wrap');
+    (0,_modules_functional_partners__WEBPACK_IMPORTED_MODULE_5__["default"])('.partners__wrap');
   }, 1000);
   (0,_modules_functional_modal__WEBPACK_IMPORTED_MODULE_6__["default"])('.modal', '.modal__close', '.contacts__btn', 'ghost', 'hide');
   (0,_modules_functional_burger__WEBPACK_IMPORTED_MODULE_7__["default"])('.main__navBtn', '.header__ul');

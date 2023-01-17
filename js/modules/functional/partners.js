@@ -1,30 +1,8 @@
 
-function partners(inn, imgs, selWrap) {
+function partners(selWrap) {
    const 
-      carousel = document.querySelector(inn),
-      allImgs = document.querySelectorAll(imgs),
       scrollWrap = document.querySelector(selWrap);
-
-      let gaps = fullOffset(window.getComputedStyle(carousel).columnGap) * (allImgs.length - 2);
-      let allImgsWidth = 0;
-
-      
-
-      function getAllImgsWidth() {
-         
-         allImgs.forEach(item => {
-            allImgsWidth += item.offsetWidth;
-      });
-
-      allImgsWidth += gaps;
-
-      };
-
-      getAllImgsWidth();
-
-      window.addEventListener('orientationchange', getAllImgsWidth());
-      window.addEventListener('resize', getAllImgsWidth());
-     
+  
 
       let scrollindex = 0;
       let toward = 1;
@@ -44,13 +22,6 @@ function partners(inn, imgs, selWrap) {
          toward = 1;
       }
    }, 100);
-
-
-   function fullOffset(str) {
-      return +str.replace(/\D/g, '');
-   }
-
-
 
 }
 
