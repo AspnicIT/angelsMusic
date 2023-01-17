@@ -1,3 +1,6 @@
+import onSwipe from "./onSwipe";
+
+
 function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, autoplay){
 
     const slider = document.querySelector(container), 
@@ -97,37 +100,16 @@ function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, aut
         prevSlide();
     });
 
-    function onSwipe(section, next, prev){
-        
-        let startPointX;
-        let endPontX;
-    
-        section.addEventListener('touchstart', (event) =>{
-            event.preventDefault();
-            event.stopPropagation();
-            startPointX = Math.floor(event.targetTouches[0].pageX);
-            endPontX = 0;
-    
-        });
-        section.addEventListener('touchmove', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            endPontX = Math.floor(event.targetTouches[0].pageX);
-        });
-        section.addEventListener('touchend', () => {
-            playSlides = false;
-            if(startPointX > endPontX){
-                next();
-            } else{
-                prev();
-            }
-        });
-    }
 
+    function changePlaySlides() {
+        playSlides = false;
+    }
     
-    onSwipe(slidesWrapper, nextSlide, prevSlide);
-    onSwipe(btnsblock, nextSlide, prevSlide);
+    onSwipe(slidesWrapper, nextSlide, prevSlide, changePlaySlides);
+    onSwipe(btnsblock, nextSlide, prevSlide, changePlaySlides);
 }
+
+   
 
 
 export default slider;

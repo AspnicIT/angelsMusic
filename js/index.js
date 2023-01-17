@@ -40,7 +40,9 @@ window.addEventListener('DOMContentLoaded', () => {
         '.bio__item_photo',
         '.bio__prev', 
         '.bio__next', 
-        '.bio__carousel_inner'
+        '.bio__carousel_inner',
+        '.bio__carousel',
+        '.bio__btns'
     );
        
     brand(partnersArr);

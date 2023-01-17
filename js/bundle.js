@@ -142,12 +142,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function carousel(photoSel, allPhoto, leftBtn, rightBtn, inn) {
+/* harmony import */ var _onSwipe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./onSwipe */ "./js/modules/functional/onSwipe.js");
+
+function carousel(photoSel, allPhoto, leftBtn, rightBtn, inn, selCarouselBlock, selBtnsBlock) {
   const photo = document.querySelector(photoSel),
     allEmployees = document.querySelectorAll(allPhoto),
     left = document.querySelector(leftBtn),
     right = document.querySelector(rightBtn),
-    slidesField = document.querySelector(inn);
+    slidesField = document.querySelector(inn),
+    carouselBlock = document.querySelector(selCarouselBlock),
+    btnsBlock = document.querySelector(selBtnsBlock);
   let width = window.getComputedStyle(photo).width;
   window.addEventListener('orientationchange', () => {
     width = window.getComputedStyle(photo).width;
@@ -160,20 +164,27 @@ function carousel(photoSel, allPhoto, leftBtn, rightBtn, inn) {
   }
   let scrollWidth = fullOffset(width) + 40;
   let offset = 0;
-  right.addEventListener('click', () => {
+  function toRight() {
     offset += scrollWidth;
     if (offset >= (allEmployees.length - 1) * scrollWidth) {
       offset -= scrollWidth;
     }
     slidesField.style.transform = `translateX(-${offset}px)`;
-  });
-  left.addEventListener('click', () => {
+  }
+  function toLeft() {
     offset -= scrollWidth;
     if (offset < 0) {
       offset = 0;
     }
     slidesField.style.transform = `translateX(-${offset}px)`;
-  });
+  }
+  right.addEventListener('click', toRight);
+  left.addEventListener('click', toLeft);
+  function empty() {
+    console.log('good');
+  }
+  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(carouselBlock, toRight, toLeft, empty);
+  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(btnsBlock, toRight, toLeft, empty);
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (carousel);
 
@@ -223,6 +234,44 @@ function modal(modalSel, modalClose, modalOpen, classOpacity, classHide) {
   }, 100000);
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
+
+/***/ }),
+
+/***/ "./js/modules/functional/onSwipe.js":
+/*!******************************************!*\
+  !*** ./js/modules/functional/onSwipe.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function onSwipe(section, next, prev, changeVar) {
+  let startPointX;
+  let endPontX;
+  section.addEventListener('touchstart', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    startPointX = Math.floor(event.targetTouches[0].pageX);
+    endPontX = 0;
+  });
+  section.addEventListener('touchmove', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    endPontX = Math.floor(event.targetTouches[0].pageX);
+  });
+  section.addEventListener('touchend', () => {
+    changeVar();
+    if (startPointX > endPontX) {
+      next();
+    } else {
+      prev();
+    }
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (onSwipe);
 
 /***/ }),
 
@@ -287,6 +336,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _onSwipe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./onSwipe */ "./js/modules/functional/onSwipe.js");
+
 function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, autoplay) {
   const slider = document.querySelector(container),
     slides = document.querySelectorAll(items),
@@ -365,31 +416,11 @@ function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, aut
     playSlides = false;
     prevSlide();
   });
-  function onSwipe(section, next, prev) {
-    let startPointX;
-    let endPontX;
-    section.addEventListener('touchstart', event => {
-      event.preventDefault();
-      event.stopPropagation();
-      startPointX = Math.floor(event.targetTouches[0].pageX);
-      endPontX = 0;
-    });
-    section.addEventListener('touchmove', event => {
-      event.preventDefault();
-      event.stopPropagation();
-      endPontX = Math.floor(event.targetTouches[0].pageX);
-    });
-    section.addEventListener('touchend', () => {
-      playSlides = false;
-      if (startPointX > endPontX) {
-        next();
-      } else {
-        prev();
-      }
-    });
+  function changePlaySlides() {
+    playSlides = false;
   }
-  onSwipe(slidesWrapper, nextSlide, prevSlide);
-  onSwipe(btnsblock, nextSlide, prevSlide);
+  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(slidesWrapper, nextSlide, prevSlide, changePlaySlides);
+  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(btnsblock, nextSlide, prevSlide, changePlaySlides);
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);
 
@@ -1708,7 +1739,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_functional_welcomeLink__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_constructors_mainBackground__WEBPACK_IMPORTED_MODULE_3__["default"])('.main__video', "../src/img/videoplayback.mp4");
   (0,_modules_functional_slider__WEBPACK_IMPORTED_MODULE_1__["default"])('.galary__slider', '.galary__slide', '.galary__prev', '.galary__next', '.galary__slide_wrapper', '.galary__btns', '.galary__slide_inner', true);
-  (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner');
+  (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner', '.bio__carousel', '.bio__btns');
   (0,_modules_constructors_brand__WEBPACK_IMPORTED_MODULE_0__["default"])(_DB_partners_DB__WEBPACK_IMPORTED_MODULE_8__.partnersArr);
   setTimeout(() => {
     (0,_modules_functional_partners__WEBPACK_IMPORTED_MODULE_5__["default"])('.partners__btn', '.partners__inner', '._partners__container', '._brandItem');
