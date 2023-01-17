@@ -55,8 +55,8 @@ import onSwipe from "./onSwipe";
          return;
       }
 
-      onSwipe(carouselBlock, toRight, toLeft, empty);
-      onSwipe(btnsBlock, toRight, toLeft, empty);
+      onSwipe(carouselBlock, toRight, toLeft, null);
+      onSwipe(btnsBlock, toRight, toLeft, null);
    }
 
 export default carousel;

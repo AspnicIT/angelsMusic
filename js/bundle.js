@@ -185,8 +185,8 @@ function carousel(photoSel, allPhoto, leftBtn, rightBtn, inn, selCarouselBlock, 
   function empty() {
     return;
   }
-  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(carouselBlock, toRight, toLeft, empty);
-  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(btnsBlock, toRight, toLeft, empty);
+  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(carouselBlock, toRight, toLeft, null);
+  (0,_onSwipe__WEBPACK_IMPORTED_MODULE_0__["default"])(btnsBlock, toRight, toLeft, null);
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (carousel);
 
@@ -308,7 +308,6 @@ function partners(inn, imgs, selWrap) {
   function getAllImgsWidth() {
     allImgs.forEach(item => {
       allImgsWidth += item.offsetWidth;
-      console.log(item.offsetWidth);
     });
     allImgsWidth += gaps;
   }
@@ -316,8 +315,6 @@ function partners(inn, imgs, selWrap) {
   getAllImgsWidth();
   window.addEventListener('orientationchange', getAllImgsWidth());
   window.addEventListener('resize', getAllImgsWidth());
-  console.log('all', allImgsWidth);
-  console.log('gapps', fullOffset(window.getComputedStyle(carousel).columnGap));
   let scrollindex = 0;
   let toward = 1;
   setInterval(() => {

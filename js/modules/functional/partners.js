@@ -14,7 +14,6 @@ function partners(inn, imgs, selWrap) {
          
          allImgs.forEach(item => {
             allImgsWidth += item.offsetWidth;
-            console.log(item.offsetWidth);
       });
 
       allImgsWidth += gaps;
@@ -26,8 +25,6 @@ function partners(inn, imgs, selWrap) {
       window.addEventListener('orientationchange', getAllImgsWidth());
       window.addEventListener('resize', getAllImgsWidth());
      
-      console.log('all', allImgsWidth);
-      console.log('gapps', fullOffset(window.getComputedStyle(carousel).columnGap));
 
       let scrollindex = 0;
       let toward = 1;
