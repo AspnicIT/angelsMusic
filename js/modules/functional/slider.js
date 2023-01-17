@@ -96,15 +96,6 @@ function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, aut
         playSlides = false;
         prevSlide();
     });
-    next.addEventListener('touchstart', () => {
-        playSlides = false;
-        nextSlide();
-    });
-
-    prev.addEventListener('touchstart', () => {
-        playSlides = false;
-        prevSlide();
-    });
 
     function onSwipe(section, next, prev){
         
@@ -124,11 +115,10 @@ function slider(container, items, prevBtn, nextBtn, wrap, selBtnsBlock, inn, aut
             endPontX = Math.floor(event.targetTouches[0].pageX);
         });
         section.addEventListener('touchend', () => {
+            playSlides = false;
             if(startPointX > endPontX){
-                playSlides = false;
                 next();
             } else{
-                playSlides = false;
                 prev();
             }
         });
