@@ -50,10 +50,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
        partners(
-        '.partners__btn',
         '.partners__inner',
-        '._partners__container',
-        '._brandItem'
+        '._brandItem',
+        '.partners__wrap'
         ); 
     }, 1000);
     

@@ -180,6 +180,8 @@ function carousel(photoSel, allPhoto, leftBtn, rightBtn, inn, selCarouselBlock, 
   }
   right.addEventListener('click', toRight);
   left.addEventListener('click', toLeft);
+  right.addEventListener('touchend', toRight);
+  left.addEventListener('touchend', toLeft);
   function empty() {
     return;
   }
@@ -297,40 +299,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function partners(nextBtn, inn, containerSel, imgs) {
-  const btn = document.querySelector(nextBtn),
-    carousel = document.querySelector(inn),
-    container = document.querySelector(containerSel),
-    windowVW = window.getComputedStyle(container).width;
-  const allImgs = document.querySelectorAll(imgs);
-  let offset = 0;
+function partners(inn, imgs, selWrap) {
+  const carousel = document.querySelector(inn),
+    allImgs = document.querySelectorAll(imgs),
+    scrollWrap = document.querySelector(selWrap);
   let gaps = fullOffset(window.getComputedStyle(carousel).columnGap) * (allImgs.length - 2);
   let allImgsWidth = 0;
   function getAllImgsWidth() {
     allImgs.forEach(item => {
       allImgsWidth += item.offsetWidth;
+      console.log(item.offsetWidth);
     });
     allImgsWidth += gaps;
-    allImgsWidth = allImgsWidth - allImgsWidth * 2;
   }
   ;
   getAllImgsWidth();
   window.addEventListener('orientationchange', getAllImgsWidth());
   window.addEventListener('resize', getAllImgsWidth());
+  console.log('all', allImgsWidth);
+  console.log('gapps', fullOffset(window.getComputedStyle(carousel).columnGap));
+  let scrollindex = 0;
+  let toward = 1;
   setInterval(() => {
-    if (offset < allImgsWidth) {
-      carousel.style.transform = `translateX(-0px)`;
-      offset = 100;
+    let oldIndex = scrollindex;
+    scrollWrap.scrollBy(toward, 0);
+    scrollindex = scrollWrap.pageXOffset || scrollWrap.documentElement && scrollWrap.documentElement.scrollLeft || scrollWrap && scrollWrap.scrollLeft;
+    if (oldIndex === scrollindex) {
+      toward = -1;
     }
-    offset -= 4;
-    carousel.style.transform = `translateX(${offset}px)`;
+    if (oldIndex <= 1) {
+      toward = 1;
+    }
   }, 100);
   function fullOffset(str) {
     return +str.replace(/\D/g, '');
   }
-  btn.addEventListener('click', () => {
-    offset = offset - Math.floor(fullOffset(windowVW) / 2);
-  });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (partners);
 
@@ -1753,7 +1756,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_functional_carousel__WEBPACK_IMPORTED_MODULE_4__["default"])('.bio__item_photo', '.bio__item_photo', '.bio__prev', '.bio__next', '.bio__carousel_inner', '.bio__carousel', '.bio__btns');
   (0,_modules_constructors_brand__WEBPACK_IMPORTED_MODULE_0__["default"])(_DB_partners_DB__WEBPACK_IMPORTED_MODULE_8__.partnersArr);
   setTimeout(() => {
-    (0,_modules_functional_partners__WEBPACK_IMPORTED_MODULE_5__["default"])('.partners__btn', '.partners__inner', '._partners__container', '._brandItem');
+    (0,_modules_functional_partners__WEBPACK_IMPORTED_MODULE_5__["default"])('.partners__inner', '._brandItem', '.partners__wrap');
   }, 1000);
   (0,_modules_functional_modal__WEBPACK_IMPORTED_MODULE_6__["default"])('.modal', '.modal__close', '.contacts__btn', 'ghost', 'hide');
   (0,_modules_functional_burger__WEBPACK_IMPORTED_MODULE_7__["default"])('.main__navBtn', '.header__ul');

@@ -1,14 +1,10 @@
 
-function partners(nextBtn, inn, containerSel, imgs) {
-   const btn = document.querySelector(nextBtn),
+function partners(inn, imgs, selWrap) {
+   const 
       carousel = document.querySelector(inn),
-      container = document.querySelector(containerSel),
-      windowVW = window.getComputedStyle(container).width;
+      allImgs = document.querySelectorAll(imgs),
+      scrollWrap = document.querySelector(selWrap);
 
-      const allImgs = document.querySelectorAll(imgs);
-
-
-      let offset = 0;
       let gaps = fullOffset(window.getComputedStyle(carousel).columnGap) * (allImgs.length - 2);
       let allImgsWidth = 0;
 
@@ -18,9 +14,10 @@ function partners(nextBtn, inn, containerSel, imgs) {
          
          allImgs.forEach(item => {
             allImgsWidth += item.offsetWidth;
+            console.log(item.offsetWidth);
       });
+
       allImgsWidth += gaps;
-      allImgsWidth = allImgsWidth - allImgsWidth * 2;
 
       };
 
@@ -29,24 +26,32 @@ function partners(nextBtn, inn, containerSel, imgs) {
       window.addEventListener('orientationchange', getAllImgsWidth());
       window.addEventListener('resize', getAllImgsWidth());
      
+      console.log('all', allImgsWidth);
+      console.log('gapps', fullOffset(window.getComputedStyle(carousel).columnGap));
+
+      let scrollindex = 0;
+      let toward = 1;
 
    setInterval(() => {
-      if (offset < allImgsWidth) {
-         carousel.style.transform = `translateX(-0px)`
-         offset = 100;
+      let oldIndex = scrollindex;
+      scrollWrap.scrollBy(toward, 0);
+      scrollindex = 
+         scrollWrap.pageXOffset || 
+         (scrollWrap.documentElement && 
+            scrollWrap.documentElement.scrollLeft) || 
+            (scrollWrap && scrollWrap.scrollLeft);
+      
+      if(oldIndex === scrollindex){
+         toward = -1;
+      }  if (oldIndex <= 1){
+         toward = 1;
       }
-      offset -= 4;
-      carousel.style.transform = `translateX(${offset}px)`
    }, 100);
 
 
    function fullOffset(str) {
       return +str.replace(/\D/g, '');
    }
-   
-   btn.addEventListener('click', () => {
-      offset = offset - Math.floor(fullOffset(windowVW) / 2);
-   })
 
 
 

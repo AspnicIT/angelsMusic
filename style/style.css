@@ -362,14 +362,22 @@ p {
 
 .partners {
   background: #dbdbdb;
+  padding-top: 40px;
   padding-bottom: 80px;
 }
 .partners__title {
   margin-bottom: 40px;
 }
 .partners__wrap {
-  overflow: hidden;
+  overflow: scroll;
+  overflow-y: hidden;
+  scrollbar-arrow-color: green;
   position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.partners__wrap::-webkit-scrollbar {
+  display: none;
 }
 .partners__inner {
   display: flex;

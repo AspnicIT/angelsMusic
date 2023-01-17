@@ -48,6 +48,8 @@ import onSwipe from "./onSwipe";
       
       right.addEventListener('click', toRight);  
       left.addEventListener('click', toLeft);  
+      right.addEventListener('touchend', toRight);  
+      left.addEventListener('touchend', toLeft);  
 
       function empty(){
          return;
